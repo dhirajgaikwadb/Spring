@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 th:object="${userm}">User After Login: Home Page</h1>
+	<a href="/logout">Logout</a>
+	<h1 th:text="${userm.id}"></h1>
+	<h1 th:text="${userm.username}"></h1>
+	<h1 th:text="${userm.email}"></h1>
+	<h1 th:text="${userm.phoneno}"></h1>
+</body>
+</html>

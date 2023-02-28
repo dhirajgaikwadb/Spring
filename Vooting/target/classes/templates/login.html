@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>register</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<style>
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+.input-style {
+	margin: 10px 0px 10px 0px;
+}
+</style>
+
+</head>
+<body>
+<div th:insert="/base"></div>
+	<h2 class="center">Login form</h2>
+	<div th:if="${param.error}" class="alert alert-danger">Invalid
+		username & Password</div>
+
+	<div th:if="${param.logout}" class="alert alert-success">Logout
+		Sucessfully</div>
+	<div class="center">
+
+		<form role="form" method="post" action="/login" th:object="${userm}">
+			<div class="input-style">
+				<label>UserName: </label><input required class="form-control"
+					type="text" th:field="*{username}" /><br>
+			</div>
+			<div class="input-style">
+				<label>Password: </label><input required class="form-control"
+					type="password" th:field="*{passcode}" /><br>
+			</div>
+			forgot password? for reset password click <a th:href="@{/forgotp}">me</a><br>
+			<br>
+			<button class="btn btn-primary btn-lg" type="submit">Register</button>
+		</form>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</body>
+</html>
